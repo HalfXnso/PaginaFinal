@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { WcService } from './wc.service';
-import { CategoriesComponent } from "./categories/categories.component";
-
+import { WcService } from '../wc.service';
+import {NgFor, NgIf} from '@angular/common';
 @Component({
-  selector: 'app-root',
+  selector: 'app-main-component',
   standalone: true,
-  imports: [RouterOutlet, CategoriesComponent, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  imports: [NgIf, NgFor],
+  templateUrl: './main-component.component.html',
+  styleUrl: './main-component.component.css'
 })
-export class AppComponent implements OnInit {
+export class MainComponentComponent implements OnInit {
   constructor(private datos: WcService) {}
   ngOnInit(): void {
     this.getProducts();

@@ -1,0 +1,21 @@
+
+
+div{
+ border: 1px solid black;
+}
+ul{
+  margin: 0;
+  padding: 1%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+    gap: 10px; /* Espacio entre elementos */
+  }
+
+li{
+list-style:none;
+border: 1px solid red;
+margin-bottom: 4%;
+padding: 1%;
+}
+h3{margin: 0  ;}
+
