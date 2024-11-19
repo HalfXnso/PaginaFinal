@@ -1,11 +1,12 @@
 <header>
-  <a [routerLink]="['/']">tusmuertos</a
-  ><button [routerLink]="['/categories']" routerLinkActive="router-link-active">
-    categorias
-  </button>
+  <a [routerLink]="['/']">tusmuertos</a>
+  <button [routerLink]="['/categories', 'groceries']">Groceries</button>
+  <button [routerLink]="['/categories', 'laptops']">PC's</button>
+  <button [routerLink]="['/categories', 'smartphones']">Lotelefonoesos</button>
+  <button [routerLink]="['/categories', 'vehicle']">Brum brum</button>
 </header>
-
 <main>
+  <app-search />
   pisoteaos
   <router-outlet />
 </main>

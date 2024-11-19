@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { WcService } from './wc.service';
-import { CategoriesComponent } from "./categories/categories.component";
+import { CategoriesComponent } from './categories/categories.component';
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CategoriesComponent, RouterLink],
+  imports: [RouterOutlet, CategoriesComponent, RouterLink, SearchComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -22,6 +23,6 @@ export class AppComponent implements OnInit {
   async getProducts() {
     const data = await this.datos.getInfo();
     this.productos = data.products;
-    console.log(this.productos)
+    console.log(this.productos);
   }
 }

@@ -1,40 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { WcService } from '../wc.service';
 import { NgFor, NgIf } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [NgFor,NgIf,RouterLink],
+  imports: [NgFor, NgIf, RouterLink],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })
 export class CategoriesComponent implements OnInit {
-  constructor(private datos: WcService) {}
-  ngOnInit(): void {
-    this.getGroceries();
-  }
   categories: any;
-  async getGroceries() {
-    const data = await this.datos.getCategoriesProducts('groceries');
-    this.categories = data.products;
-    console.log(this.categories);
+  filteredCategories: any[] = []; // Lista filtrada que se mostrará
+  valor: string = ''; // Valor del input
+  constructor(private datos: WcService, private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.datos.miVariable$.subscribe((nuevoValor) => {
+      this.valor = nuevoValor;
+
+      this.route.paramMap.subscribe((params) => {
+        const valorParam = params.get('nombre');
+        // this.valor = valorParam ? +valorParam : '';
+        // console.log(this.id);
+        console.log(valorParam);
+        if (valorParam) {
+          this.getCategorie(this.valor,valorParam);
+        }
+      });
+    });
   }
 
-  async getVehicles() {
-    const data = await this.datos.getCategoriesProducts('vehicle');
-    this.categories = data.products;
-    console.log(this.categories);
-  }
-  async getSmartPhones() {
-    const data = await this.datos.getCategoriesProducts('smartphones');
-    this.categories = data.products;
-    console.log(this.categories);
-  }
-  async getLaptops() {
-    const data = await this.datos.getCategoriesProducts('laptops');
-    this.categories = data.products;
-    console.log(this.categories);
+  // Método que obtiene los productos
+  async getCategorie(valor: string, category: string) {
+    const data = await this.datos.getCategoriesProducts(category);
+    const titles = [];
+    if (valor === '') {
+      this.categories = data.products;
+    } else {
+      for (let product of data.products) {
+        if (product.title.includes(valor)) {
+          titles.push(product); // Añadir el título del producto al array
+          this.categories = titles;
+        }
+      }
+    }
   }
 }

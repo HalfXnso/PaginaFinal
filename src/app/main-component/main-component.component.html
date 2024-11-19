@@ -1,6 +1,10 @@
+
 <div>
   <ul>
-    <li *ngFor="let product of productos">
+    <li
+      *ngFor="let product of productos"
+      [routerLink]="['/products', product.id]"
+    >
       <h3>{{ product.title }}</h3>
       <p>{{ product.description }}</p>
       <p>Price: ${{ product.price }}</p>
@@ -8,7 +12,7 @@
     </li>
   </ul>
 </div>
-
+<p>Valor recibido: {{ valor }}</p>
 <ng-template #noProducts>
   <p>Cargando productos...</p>
 </ng-template>
