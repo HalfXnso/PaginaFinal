@@ -26,7 +26,7 @@ export class CategoriesComponent implements OnInit {
         // console.log(this.id);
         console.log(valorParam);
         if (valorParam) {
-          this.getCategorie(this.valor,valorParam);
+          this.getCategorie(this.valor, valorParam);
         }
       });
     });
@@ -40,7 +40,12 @@ export class CategoriesComponent implements OnInit {
       this.categories = data.products;
     } else {
       for (let product of data.products) {
-        if (product.title.includes(valor)) {
+        var titulo = product.title.toLowerCase();
+        console.log(titulo);
+        if (
+          product.title.toLowerCase().includes(valor) ||
+          product.title.includes(valor)
+        ) {
           titles.push(product); // Añadir el título del producto al array
           this.categories = titles;
         }
