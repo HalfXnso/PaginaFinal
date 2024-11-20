@@ -17,8 +17,7 @@ export class ProductosComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       const idParam = params.get('id');
       this.id = idParam ? +idParam : 0;
-      console.log(this.id);
-      console.log(params);
+
       if (this.id) {
         this.getItemsById(this.id);
       }

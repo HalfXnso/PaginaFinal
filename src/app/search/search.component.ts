@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WcService } from '../wc.service';
+import { routes } from '../app.routes';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -8,8 +10,21 @@ import { WcService } from '../wc.service';
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
 })
-export class SearchComponent {
-  constructor(private miServicio: WcService) {}
+export class SearchComponent implements OnInit {
+  constructor(private miServicio: WcService, private route: ActivatedRoute) {}
+  id: number = 0;
+  hayDato: boolean = false;
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const idParam = params.get('id');
+      this.id = idParam ? +idParam : 0;
+
+      if (this.id) {
+        this.hayDato = true;
+      }
+      console.log('Hay dato? ' + this.hayDato);
+    });
+  }
 
   actualizarValor(event: Event): void {
     const valor = (event.target as HTMLInputElement).value;
