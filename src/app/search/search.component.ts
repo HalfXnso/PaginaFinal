@@ -18,11 +18,10 @@ export class SearchComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       const idParam = params.get('id');
       this.id = idParam ? +idParam : 0;
-
-      if (this.id) {
-        this.hayDato = true;
-      }
-      console.log('Hay dato? ' + this.hayDato);
+      this.miServicio.displaySearchBar$.subscribe((valor) => {
+        this.hayDato = valor || !!this.id;
+        console.log('Hay dato? ' + this.hayDato);
+      });
     });
   }
 

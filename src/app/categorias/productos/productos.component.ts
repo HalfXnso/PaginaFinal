@@ -14,6 +14,7 @@ export class ProductosComponent implements OnInit {
   id: number = 0;
   product: any;
   ngOnInit(): void {
+    this.wc.setMiBoolean(false)
     this.route.paramMap.subscribe((params) => {
       const idParam = params.get('id');
       this.id = idParam ? +idParam : 0;

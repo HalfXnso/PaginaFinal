@@ -16,6 +16,7 @@ export class MainComponentComponent implements OnInit {
   productos: any;
   constructor(private datos: WcService) {}
   ngOnInit(): void {
+    this.datos.setMiBoolean(true);
     this.datos.miVariable$.subscribe((nuevoValor) => {
       this.valor = nuevoValor;
       this.valor === ''

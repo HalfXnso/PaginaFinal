@@ -5,16 +5,24 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class WcService {
-  private miVariableSubject = new BehaviorSubject<string>(''); // Valor inicial vacío
-  miVariable$ = this.miVariableSubject.asObservable(); // Observable para que los componentes se suscriban
+  private miVariableSubject = new BehaviorSubject<string>('');
+  private miVariableBoolean = new BehaviorSubject<boolean>(false); // Valor inicial vacío
+    miVariable$ = this.miVariableSubject.asObservable(); // Observable para que los componentes se suscriban
+    displaySearchBar$ = this.miVariableBoolean.asObservable();
+    constructor() {}
 
-  constructor() {}
+    // Setter: Actualiza el valor en el BehaviorSubject
+    setMiVariable(valor: string): void {
+      this.miVariableSubject.next(valor);
+    }
 
-  // Setter: Actualiza el valor en el BehaviorSubject
-  setMiVariable(valor: string): void {
-    this.miVariableSubject.next(valor);
-  }
+    setMiBoolean(valor: boolean): void {
+      this.miVariableBoolean.next(valor);
+    }
 
+    getMiBoolean(): boolean {
+      return this.miVariableBoolean.getValue();
+    }
   // Getter: Obtiene el valor actual del BehaviorSubject
   getMiVariable(): string {
     return this.miVariableSubject.getValue();

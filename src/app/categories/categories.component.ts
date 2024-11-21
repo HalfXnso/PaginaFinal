@@ -19,7 +19,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.datos.miVariable$.subscribe((nuevoValor) => {
       this.valor = nuevoValor;
-
+      this.datos.setMiBoolean(true)
       this.route.paramMap.subscribe((params) => {
         const valorParam = params.get('nombre');
         // this.valor = valorParam ? +valorParam : '';
