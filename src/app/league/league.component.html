@@ -1,0 +1,14 @@
+<div>
+  <ul>
+    <li *ngFor="let product of products" [routerLink]="['/league', product.id]">
+      <h3>{{ product.name }}</h3>
+      <img
+        [src]="
+          'https://ddragon.leagueoflegends.com/cdn/14.23.1/img/champion/' +
+          product.image.full
+        "
+        width="100"
+      />
+    </li>
+  </ul>
+</div>

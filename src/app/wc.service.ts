@@ -7,22 +7,22 @@ import { BehaviorSubject } from 'rxjs';
 export class WcService {
   private miVariableSubject = new BehaviorSubject<string>('');
   private miVariableBoolean = new BehaviorSubject<boolean>(false); // Valor inicial vacío
-    miVariable$ = this.miVariableSubject.asObservable(); // Observable para que los componentes se suscriban
-    displaySearchBar$ = this.miVariableBoolean.asObservable();
-    constructor() {}
+  miVariable$ = this.miVariableSubject.asObservable(); // Observable para que los componentes se suscriban
+  displaySearchBar$ = this.miVariableBoolean.asObservable();
+  constructor() {}
 
-    // Setter: Actualiza el valor en el BehaviorSubject
-    setMiVariable(valor: string): void {
-      this.miVariableSubject.next(valor);
-    }
+  // Setter: Actualiza el valor en el BehaviorSubject
+  setMiVariable(valor: string): void {
+    this.miVariableSubject.next(valor);
+  }
 
-    setMiBoolean(valor: boolean): void {
-      this.miVariableBoolean.next(valor);
-    }
+  setMiBoolean(valor: boolean): void {
+    this.miVariableBoolean.next(valor);
+  }
 
-    getMiBoolean(): boolean {
-      return this.miVariableBoolean.getValue();
-    }
+  getMiBoolean(): boolean {
+    return this.miVariableBoolean.getValue();
+  }
   // Getter: Obtiene el valor actual del BehaviorSubject
   getMiVariable(): string {
     return this.miVariableSubject.getValue();
@@ -55,5 +55,12 @@ export class WcService {
     const data = await response.json();
     console.log(data);
     return data;
+  }
+  async getChamps() {
+    const response = await fetch(
+      `https://ddragon.leagueoflegends.com/cdn/14.23.1/data/es_ES/champion.json`
+    );
+    const { data } = await response.json(); // Extrae 'data'
+    return Object.values(data); // Convierte el objeto en un array
   }
 }
