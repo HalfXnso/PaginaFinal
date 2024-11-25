@@ -12,12 +12,17 @@ import { NgFor } from '@angular/common';
 })
 export class LeagueComponent implements OnInit {
   constructor(private datos: WcService) {}
-  products: any[] = []; 
+  products: any[] = [];
   ngOnInit(): void {
     this.getChamps(); // Llamar al servicio al cargar
   }
 
   async getChamps() {
+    this.products = await this.datos.getChamps(); // Recibe el array de campeones
+    console.log(this.products); // Verifica que sea un array
+  }
+
+  async getInfoChamps() {
     this.products = await this.datos.getChamps(); // Recibe el array de campeones
     console.log(this.products); // Verifica que sea un array
   }

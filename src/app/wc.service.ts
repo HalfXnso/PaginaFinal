@@ -63,4 +63,12 @@ export class WcService {
     const { data } = await response.json(); // Extrae 'data'
     return Object.values(data); // Convierte el objeto en un array
   }
+  async getChampInfo() {
+    const response = await fetch(
+      `https://ddragon.leagueoflegends.com/cdn/14.23.1/data/es_ES/champion.json`
+    );
+    const { data } = await response.json(); // Extrae 'data'
+    return Object.values(data); // Convierte el objeto en un array
+  }
+    
 }
