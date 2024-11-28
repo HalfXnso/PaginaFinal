@@ -3,11 +3,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { WcService } from './wc.service';
 import { CategoriesComponent } from './categories/categories.component';
 import { SearchComponent } from './search/search.component';
+import { FooterComponent } from "./footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CategoriesComponent, RouterLink, SearchComponent],
+  imports: [RouterOutlet, CategoriesComponent, RouterLink, SearchComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

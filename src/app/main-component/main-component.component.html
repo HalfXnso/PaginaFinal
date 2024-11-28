@@ -1,18 +1,16 @@
-
 <div>
   <ul>
     <li
       *ngFor="let product of productos"
       [routerLink]="['/products', product.id]"
     >
+      <img [src]="product.thumbnail" alt="{{ product.title }}" />
       <h3>{{ product.title }}</h3>
-      <p>{{ product.description }}</p>
-      <p>Price: ${{ product.price }}</p>
-      <img [src]="product.thumbnail" alt="{{ product.title }}" width="100" />
+      <p><b>Puntuación:</b>{{ product.rating }}</p>
+      <p><b>Precio:</b>{{ product.price }}€</p>
     </li>
   </ul>
 </div>
-<p>Valor recibido: {{ valor }}</p>
 <ng-template #noProducts>
   <p>Cargando productos...</p>
 </ng-template>

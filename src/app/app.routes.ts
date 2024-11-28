@@ -5,6 +5,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ProductosComponent } from './categorias/productos/productos.component';
 import { SearchComponent } from './search/search.component';
 import { LeagueComponent } from './league/league.component';
+import { FooterComponent } from './footer/footer.component';
 export const routes: Routes = [
   { path: '', component: MainComponentComponent },
   {
@@ -23,4 +24,8 @@ export const routes: Routes = [
     path: 'league',
     component: LeagueComponent,
   },
+  {
+    path: '',
+    component: FooterComponent
+  }
 ];

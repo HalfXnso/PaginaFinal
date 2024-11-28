@@ -1,7 +1,8 @@
-<h1>{{ product.title }}</h1>
-<div>
-  <img [src]="product.thumbnail" alt="{{ product.title }}" width="100" />
-</div>
-
-{{ product.id }}
-{{ product.item }}
+  <ul>
+    <img [src]="product.thumbnail" alt="{{ product.title }}" />
+    <li>
+      <h3>{{ product.title }}</h3>
+      <p><b>Descripción: </b>{{ product.description }}</p>
+      <p><b>Precio: </b>{{ product.price }}€</p>
+    </li>
+  </ul>

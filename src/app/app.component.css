@@ -1,0 +1,43 @@
+header {
+  margin: 2%;
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 5px;
+
+}
+
+svg{
+  cursor: pointer;
+  stroke: rgb(121, 7, 7);
+}
+svg:hover{
+  stroke: rgb(156, 11, 11);
+}
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.headerBottom {
+
+  margin-top: 1%;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.headerBottom button {
+  width: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .headerBottom button{
+    width: 20%;
+    padding: 0;
+    text-align: center;
+    font-size: x-small;
+
+  }
+}

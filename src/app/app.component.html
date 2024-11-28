@@ -1,14 +1,82 @@
 <header>
-  <a [routerLink]="['/']">tusmuertos</a>
-  <button [routerLink]="['/categories', 'groceries']">Groceries</button>
-  <button [routerLink]="['/categories', 'laptops']">PC's</button>
-  <button [routerLink]="['/categories', 'smartphones']">Lotelefonoesos</button>
-  <button [routerLink]="['/categories', 'vehicle']">Brum brum</button>
-  <button [routerLink]="['/league']">Champs</button>
+  <div class="headerTop">
+    <a [routerLink]="['/']"
+      ><svg
+
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="black"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="64"
+        height="64"
+        stroke-width="1.5"
+      >
+        <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+        <path d="M10 12h4v4h-4z"></path>
+      </svg>
+    </a>
+    <app-search />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      width="54"
+      height="54"
+      stroke-width="2"
+      stroke-linejoin="round"
+      stroke-linecap="round"
+      stroke="currentColor"
+    >
+      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      width="54"
+      height="54"
+      stroke-width="2"
+    >
+      <path
+        d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+      ></path>
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      width="54"
+      height="54"
+      stroke-width="2"
+    >
+      <path
+        d="M11.5 21h-2.926a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304h11.339a2 2 0 0 1 1.977 2.304c-.057 .368 -.1 .644 -.127 .828"
+      ></path>
+      <path d="M9 11v-5a3 3 0 0 1 6 0v5"></path>
+      <path
+        d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z"
+      ></path>
+    </svg>
+  </div>
+  <div class="headerBottom">
+    <button [routerLink]="['/categories', 'groceries']">Comestibles</button>
+    <button [routerLink]="['/categories', 'laptops']">Ordenadores</button>
+    <button [routerLink]="['/categories', 'smartphones']">Teléfonos</button>
+    <button [routerLink]="['/categories', 'vehicle']">Vehículos</button>
+    <button [routerLink]="['/league']">Campeones de Lol</button>
+  </div>
 </header>
 <main>
-  <app-search />
-  pisoteaos
   <router-outlet />
 </main>
-<footer>subnormal</footer>
+<footer><app-footer /></footer>

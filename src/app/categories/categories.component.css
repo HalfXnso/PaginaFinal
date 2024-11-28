@@ -1,5 +1,9 @@
 div {
   border: 1px solid black;
+  border-radius: 5px;
+  margin: 2%;
+  text-transform: uppercase;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 ul {
   margin: 0;
@@ -10,11 +14,28 @@ ul {
 }
 
 li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
   list-style: none;
-  border: 1px solid red;
+  border-radius: 5px;
+  border: 1px solid rgb(121, 7, 7);
   margin-bottom: 4%;
-  padding: 1%;
+
+  justify-content: center;
+  align-items: center;
 }
 h3 {
   margin: 0;
+}
+
+@media (max-width: 580px) {
+  ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 580px) and (max-width: 860px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

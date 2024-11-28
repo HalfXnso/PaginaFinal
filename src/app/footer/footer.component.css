@@ -1,0 +1,18 @@
+ul {
+  margin: 0;
+  border: 1px solid black;
+  background-color: rgb(202, 199, 199);
+  display: grid;
+  border-left: none;
+  border-right: none;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+  gap: 10px; /* Espacio entre elementos */
+}
+li {
+  color: rgb(14, 22, 100);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 2%;
+  font-size: larger;
+  list-style: none;
+  text-align: center;
+}
